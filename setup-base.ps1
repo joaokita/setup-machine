@@ -19,6 +19,7 @@ winget install --silent --scope machine --accept-package-agreements --accept-sou
 winget install --silent --scope machine --accept-package-agreements --accept-source-agreements -e --id Bitwarden.Bitwarden
 winget install --silent --scope machine --accept-package-agreements --accept-source-agreements -e --id Foxit.FoxitReader
 winget install --silent --scope machine --accept-package-agreements --accept-source-agreements -e --id Microsoft.Office
+winget install --silent --scope machine --accept-package-agreements --accept-source-agreements -e --id Microsoft.Outlook
 winget install --silent --scope machine --accept-package-agreements --accept-source-agreements -e --id Microsoft.PowerBI
 winget install --silent --scope machine --accept-package-agreements --accept-source-agreements -e --id 9NRX63209R7B
 winget install --silent --scope machine --accept-package-agreements --accept-source-agreements -e --id 9P1HQ5TQZMGD

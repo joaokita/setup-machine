@@ -7,6 +7,7 @@
 choco install --accept-license --confirm --allow-unofficial --ignore-checksum nerd-fonts-CascadiaCode
 choco install --accept-license --confirm --allow-unofficial --ignore-checksum cmdermini
 
+winget install --silent --scope machine --accept-package-agreements --accept-source-agreements -e --id Microsoft.PowerShell
 winget install --silent --scope machine --accept-package-agreements --accept-source-agreements -e --id Microsoft.WindowsTerminal.Preview
 winget install --silent --scope machine --accept-package-agreements --accept-source-agreements -e --id JanDeDobbeleer.OhMyPosh
 winget install --silent --scope machine --accept-package-agreements --accept-source-agreements -e --id OpenTofu.Tofu
@@ -23,3 +24,11 @@ winget install --silent --scope machine --accept-package-agreements --accept-sou
 winget install --silent --scope machine --accept-package-agreements --accept-source-agreements -e --id Microsoft.VisualStudio.2022.Professional.Preview
 winget install --silent --scope machine --accept-package-agreements --accept-source-agreements -e --id Microsoft.ServiceFabricSDK
 winget install --silent --scope machine --accept-package-agreements --accept-source-agreements -e --id Microsoft.ServiceFabricRuntime
+winget install --silent --scope machine --accept-package-agreements --accept-source-agreements -e --id Microsoft.ServiceFabric.LocalClusterManager
+
+winget install --silent --scope machine --accept-package-agreements --accept-source-agreements -e --id Postman.Postman
+winget install --silent --scope machine --accept-package-agreements --accept-source-agreements -e --id Microsoft.AzureStorageExplorer
+winget install --silent --scope machine --accept-package-agreements --accept-source-agreements -e --id Telerik.Fiddler.Classic
+winget install --silent --scope machine --accept-package-agreements --accept-source-agreements -e --id Notepad++.Notepad++
+winget install --silent --scope machine --accept-package-agreements --accept-source-agreements -e --id Docker.DockerDesktop
+winget install --silent --scope machine --accept-package-agreements --accept-source-agreements -e --id qishibo.AnotherRedisDesktopManager
