@@ -41,9 +41,18 @@ function Install-Chocolatey {
         Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
         
         # Refresh environment variables
-        $env:ChocolateyInstall = Convert-Path "$((Get-Command choco).Path)\..\.."
-        Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-        refreshenv
+        try {
+            $env:ChocolateyInstall = [System.Environment]::GetEnvironmentVariable('ChocolateyInstall', 'Machine')
+            if (-not $env:ChocolateyInstall) {
+                $env:ChocolateyInstall = "$env:ProgramData\chocolatey"
+            }
+            $env:Path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine') + ';' + [System.Environment]::GetEnvironmentVariable('Path', 'User')
+            if (Test-Path "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1") {
+                Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+            }
+        } catch {
+            Write-ColorOutput Yellow "Note: Environment refresh may require restarting PowerShell session."
+        }
     } else {
         Write-ColorOutput Green "Chocolatey is already installed."
     }
@@ -61,7 +70,7 @@ function Install-ChocoPackage {
         choco install $PackageName -y
         Write-ColorOutput Green "$DisplayName installed successfully."
     } catch {
-        Write-ColorOutput Red "Failed to install $DisplayName : $_"
+        Write-ColorOutput Red "Failed to install ${DisplayName}: $_"
     }
 }
 
